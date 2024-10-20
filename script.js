@@ -14,11 +14,28 @@ function closeMenu() {
 openMenuBtn.addEventListener('click', openMenu);
 closeMenuBtn.addEventListener('click', closeMenu);
 
-// Parallax Effect
-window.addEventListener('scroll', function () {
-  const parallaxElements = document.querySelectorAll('.parallax');
-  parallaxElements.forEach(function (element) {
-    let offset = window.pageYOffset;
-    element.style.backgroundPositionY = offset * 0.5 + 'px';
+/* Fallback for Scroll-Driven Animations */
+if (!CSS.supports('animation-timeline: scroll()')) {
+  const scrollSections = document.querySelectorAll('.scroll-section');
+
+  window.addEventListener('scroll', () => {
+    scrollSections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const visual = section.querySelector('.Visual picture');
+      const textContent = section.querySelector('.text-content');
+
+      if (rect.top <= windowHeight && rect.bottom >= 0) {
+        // Element is in viewport
+        visual.style.opacity = 1;
+        visual.style.transform = 'translateY(0)';
+        textContent.style.opacity = 1;
+      } else {
+        // Element is out of viewport
+        visual.style.opacity = 0;
+        visual.style.transform = 'translateY(50%)';
+        textContent.style.opacity = 0;
+      }
+    });
   });
-});
+}
