@@ -1,56 +1,34 @@
-// Menu Functionality
-const openMenuBtn = document.querySelector('#open-menu-btn');
-const closeMenuBtn = document.querySelector('#close-menu-btn');
-const menu = document.querySelector('#menu');
+(function () {
+  'use strict';
 
-function openMenu() {
-  menu.classList.add('open');
-  window.addEventListener('keyup', pressESC);
-}
+  // Scroll Parallax Functionality
+  function scrollBanner() {
+    document.addEventListener('scroll', function () {
+      const scrollPos = window.scrollY;
+      document.querySelector('.parallax-fade-top').style.top = scrollPos / 2 + 'px';
+      document.querySelector('.parallax-fade-top').style.opacity = 1 - scrollPos / 700;
 
-function closeMenu() {
-  menu.classList.remove('open');
-  window.removeEventListener('keyup', pressESC);
-}
-
-openMenuBtn.addEventListener('click', () => {
-  handleViewTransition(openMenu);
-});
-
-closeMenuBtn.addEventListener('click', () => {
-  handleViewTransition(closeMenu);
-});
-
-function handleViewTransition(callback) {
-  if (!document.startViewTransition) callback();
-  else document.startViewTransition(() => callback());
-}
-
-// Close Menu by Pressing Escape (ESC)
-function pressESC(e) {
-  if (e.key === 'Escape') {
-    handleViewTransition(closeMenu);
+      document.querySelector('.parallax-00').style.top = scrollPos / -3.5 + 'px';
+      document.querySelector('.parallax-01').style.top = scrollPos / -2.8 + 'px';
+      document.querySelector('.parallax-top-shadow').style.top = scrollPos / -2 + 'px';
+    });
   }
-}
+  scrollBanner();
 
-// Image Animation on Scroll
-const sections = document.querySelectorAll('.content-section');
-const images = document.querySelectorAll('.image');
-
-window.addEventListener('scroll', () => {
-  let index = 0;
-  sections.forEach((section, i) => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top <= window.innerHeight / 2) {
-      index = i;
-    }
-  });
-
-  images.forEach((img, i) => {
-    if (i === index) {
-      img.style.opacity = 1;
+  // Scroll to top functionality
+  const scrollToTopBtn = document.querySelector('.scroll-to-top');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 300) {
+      scrollToTopBtn.classList.add('active-arrow');
     } else {
-      img.style.opacity = 0;
+      scrollToTopBtn.classList.remove('active-arrow');
     }
   });
-});
+
+  scrollToTopBtn.addEventListener('click', function () {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
+})();
