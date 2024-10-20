@@ -5,26 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Storytellers for Change</title>
   <!-- Open Props CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/open-props" />
   <link rel="stylesheet" href="https://unpkg.com/open-props/normalize.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/open-props" />
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap"
     rel="stylesheet"
   />
-  <!-- Layout Craft Utilities -->
-  <link rel="stylesheet" href="https://unpkg.com/layout-craft@0.1.1/dist/utilities.css" />
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="block-center-center">
+<body>
   <!-- Navigation Menu -->
-  <nav class="Nav block-center-center">
-    <a href="#contact">Get Started</a>
+  <nav>
+    <button id="open-menu-btn" class="btn-custom">
+      <!-- Menu Icon SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
+      </svg>
+    </button>
+    <div class="logo">
+      <h1>Storytellers for Change</h1>
+    </div>
+    <div id="menu" class="menu">
+      <div>
+        <header>
+          <button id="close-menu-btn" class="close-menu">
+            <!-- Close Icon SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"
+              ></path>
+            </svg>
+          </button>
+          <div class="logo">
+            <h1>Storytellers for Change</h1>
+          </div>
+        </header>
+        <ul>
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#tools">Tools</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
   <!-- Main Content -->
-  <main class="inline content-full">
+  <main>
     <!-- Title Section -->
     <section id="title" class="section">
       <div class="content">
@@ -43,131 +73,66 @@
       </div>
     </section>
 
-    <!-- Scroll-Driven Animation Section -->
-    <section class="Hero inline gap-2">
-      <div class="Wrapper block content-3">
-        <div class="Visual block-center-center">
+    <!-- Image Animation Section -->
+    <section id="scroll-animation">
+      <div class="image-container">
+        <div class="image-wrapper">
           <!-- First Image -->
-          <picture class="FirstPic">
-            <!-- Placeholder images -->
-            <source
-              srcset="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-desktop-3.avif"
-              media="(min-width: 1024px)"
-              type="image/avif"
-            />
-            <source
-              srcset="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-mobile-3.avif"
-              type="image/avif"
-            />
-            <source
-              srcset="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-desktop-3.webp"
-              media="(min-width: 1024px)"
-              type="image/webp"
-            />
-            <img
-              src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-mobile-3.webp"
-              alt="Collaborative Teamwork"
-            />
-          </picture>
+          <img
+            class="image first-image"
+            src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-desktop-3.webp"
+            alt="Collaborative Teamwork"
+          />
           <!-- Second Image -->
-          <picture class="SecondPic">
-            <!-- Placeholder images -->
-            <source
-              srcset="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-desktop-2.avif"
-              media="(min-width: 1024px)"
-              type="image/avif"
-            />
-            <source
-              srcset="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-mobile-2.avif"
-              type="image/avif"
-            />
-            <source
-              srcset="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-desktop-2.webp"
-              media="(min-width: 1024px)"
-              type="image/webp"
-            />
-            <img
-              src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-mobile-2.webp"
-              alt="Global Collaboration"
-            />
-          </picture>
+          <img
+            class="image second-image"
+            src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-desktop-2.webp"
+            alt="Global Collaboration"
+          />
           <!-- Third Image -->
-          <picture class="ThirdPic">
-            <!-- Placeholder images -->
-            <source
-              srcset="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-desktop-1.avif"
-              media="(min-width: 1024px)"
-              type="image/avif"
-            />
-            <source
-              srcset="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-mobile-1.avif"
-              type="image/avif"
-            />
-            <source
-              srcset="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-desktop-1.webp"
-              media="(min-width: 1024px)"
-              type="image/webp"
-            />
-            <img
-              src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-mobile-1.webp"
-              alt="Sharing Tools and Methods"
-            />
-          </picture>
+          <img
+            class="image third-image"
+            src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/stories-with-scroll-driven/images/img-desktop-1.webp"
+            alt="Sharing Tools and Methods"
+          />
         </div>
       </div>
 
-      <div class="Content block">
-        <!-- Team Section -->
-        <div id="team" class="FirstLockup block-center-start">
-          <div class="block gap-3">
-            <h3>Our Team</h3>
-            <div class="subhead">
-              Building a sustainable network for knowledge sharing.
-            </div>
-            <p>
-              An international collaboration of researchers and practitioners in interactive storytelling for societal change.
-            </p>
-          </div>
+      <!-- Team Section -->
+      <section id="team" class="section content-section">
+        <div class="content">
+          <h2>Our Team</h2>
+          <p>
+            An international collaboration of researchers and practitioners in interactive storytelling for societal change.
+          </p>
         </div>
-        <!-- Events Section -->
-        <div id="events" class="SecondLockup block-center-start">
-          <div class="block gap-3">
-            <h3>Events & Workshops</h3>
-            <div class="subhead">
-              Exchanging insights and advancing the field.
-            </div>
-            <p>
-              Join our events to engage with experts and contribute to the shared research agenda.
-            </p>
-          </div>
-        </div>
-        <!-- Tools Section -->
-        <div id="tools" class="ThirdLockup block-center-start">
-          <div class="block gap-3">
-            <h3>Tools & Resources</h3>
-            <div class="subhead">
-              Sharing methods and results for social impact.
-            </div>
-            <p>
-              Access our repository of publications, tools, and methods developed through our collaborative efforts.
-            </p>
-          </div>
-        </div>
-      </div>
+      </section>
 
-      <!-- Mobile Content -->
-      <div class="SmallScreenContent block-center-center">
-        <p class="FirstStory">Our Team</p>
-        <p class="SecondStory">Events & Workshops</p>
-        <p class="ThirdStory">Tools & Resources</p>
-      </div>
+      <!-- Events Section -->
+      <section id="events" class="section content-section">
+        <div class="content">
+          <h2>Events & Workshops</h2>
+          <p>
+            Join our events to engage with experts and contribute to the shared research agenda.
+          </p>
+        </div>
+      </section>
+
+      <!-- Tools Section -->
+      <section id="tools" class="section content-section">
+        <div class="content">
+          <h2>Tools & Resources</h2>
+          <p>
+            Access our repository of publications, tools, and methods developed through our collaborative efforts.
+          </p>
+        </div>
+      </section>
     </section>
 
     <!-- Footer -->
     <footer>
       <p>&copy; 2023 Storytellers for Change. All rights reserved.</p>
     </footer>
-
   </main>
 
   <!-- JavaScript -->
