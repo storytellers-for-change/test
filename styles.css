@@ -1,4 +1,3 @@
-/* Import Open Props */
 @import 'https://unpkg.com/open-props';
 
 body {
@@ -47,6 +46,10 @@ nav {
 nav .logo h1 {
   font-size: var(--font-size-6);
   color: white;
+}
+
+.menu-btn-container {
+  display: block;
 }
 
 .btn-custom {
