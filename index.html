@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Website</title>
-  <link rel="stylesheet" href="styles.css" />
   <!-- Open Props CSS -->
   <link rel="stylesheet" href="https://unpkg.com/open-props" />
   <link rel="stylesheet" href="https://unpkg.com/open-props/normalize.min.css" />
@@ -14,6 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap"
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- Navigation Menu -->
@@ -57,8 +57,7 @@
   <!-- Main Content -->
   <main>
     <!-- Title Section -->
-    <section id="title" class="section parallax">
-      <div class="shadow-title parallax-top-shadow">Welcome</div>
+    <section id="title" class="section">
       <div class="content">
         <h1>Your Website Title</h1>
         <p>Your website subtitle or tagline goes here.</p>
@@ -75,27 +74,60 @@
       </div>
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="section parallax">
-      <div class="content">
-        <h2>Meet the Team</h2>
-        <p>Introduce your team members here.</p>
+    <!-- Scroll-Driven Animation Section -->
+    <section id="scroll-animation">
+      <!-- Team Section -->
+      <div id="team-section" class="section scroll-section">
+        <div class="content">
+          <div class="shadow-title parallax-top-shadow">Team</div>
+          <div class="Visual">
+            <!-- Team Image -->
+            <picture>
+              <!-- Replace with your team image sources -->
+              <img src="your-team-image.jpg" alt="Team">
+            </picture>
+          </div>
+          <div class="text-content">
+            <h3>Meet the Team</h3>
+            <p>Introduce your team members here.</p>
+          </div>
+        </div>
       </div>
-    </section>
 
-    <!-- Events Section -->
-    <section id="events" class="section">
-      <div class="content">
-        <h2>Upcoming Events</h2>
-        <p>List your upcoming events here.</p>
+      <!-- Events Section -->
+      <div id="events-section" class="section scroll-section">
+        <div class="content">
+          <div class="shadow-title parallax-top-shadow">Events</div>
+          <div class="Visual">
+            <!-- Events Image -->
+            <picture>
+              <!-- Replace with your events image sources -->
+              <img src="your-events-image.jpg" alt="Events">
+            </picture>
+          </div>
+          <div class="text-content">
+            <h3>Upcoming Events</h3>
+            <p>List your upcoming events here.</p>
+          </div>
+        </div>
       </div>
-    </section>
 
-    <!-- Tools Section -->
-    <section id="tools" class="section parallax">
-      <div class="content">
-        <h2>Our Tools</h2>
-        <p>Showcase the tools or services you offer.</p>
+      <!-- Tools Section -->
+      <div id="tools-section" class="section scroll-section">
+        <div class="content">
+          <div class="shadow-title parallax-top-shadow">Tools</div>
+          <div class="Visual">
+            <!-- Tools Image -->
+            <picture>
+              <!-- Replace with your tools image sources -->
+              <img src="your-tools-image.jpg" alt="Tools">
+            </picture>
+          </div>
+          <div class="text-content">
+            <h3>Our Tools</h3>
+            <p>Showcase the tools or services you offer.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
