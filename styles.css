@@ -6,12 +6,14 @@ body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background-image: linear-gradient(
-    180deg,
+    180deg in oklab,
     oklch(63% 0.1 204) 0%,
+    70%,
     oklch(98% 0.01 170) 100%
   );
   color: var(--gray-10);
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 a {
@@ -114,10 +116,7 @@ nav .logo h1 {
   justify-content: center;
   padding: var(--size-6) var(--size-4);
   position: relative;
-}
-
-.section:nth-child(even) {
-  background: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .content {
@@ -125,10 +124,58 @@ nav .logo h1 {
   text-align: center;
 }
 
-.parallax {
-  background-attachment: fixed;
+/* Title and Mission Sections */
+#title h1 {
+  font-size: var(--font-size-fluid-5);
 }
 
+#mission h2 {
+  font-size: var(--font-size-fluid-4);
+}
+
+/* Scroll-Driven Animation Sections */
+.scroll-section {
+  overflow: hidden;
+}
+
+.scroll-section .content {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'visual'
+    'text';
+  align-items: center;
+  justify-items: center;
+}
+
+.scroll-section .Visual {
+  grid-area: visual;
+  position: relative;
+  width: 100%;
+  height: 60vh;
+}
+
+.scroll-section picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scroll-section .text-content {
+  grid-area: text;
+  margin-top: var(--size-5);
+}
+
+.scroll-section h3 {
+  font-size: var(--font-size-fluid-4);
+}
+
+.scroll-section p {
+  font-size: var(--font-size-3);
+}
+
+/* Parallax Effect */
 .shadow-title {
   position: absolute;
   top: 10%;
@@ -136,32 +183,37 @@ nav .logo h1 {
   font-size: calc(var(--font-size-fluid-5) * 4);
   color: rgba(255, 255, 255, 0.05);
   z-index: -1;
-}
-
-.parallax-top-shadow {
   animation: parallax-scroll 10s infinite;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: var(--size-5);
-  background: rgba(31, 32, 41, 0.8);
-  color: white;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .shadow-title {
-    font-size: calc(var(--font-size-fluid-4) * 3);
-  }
-
   nav .logo h1 {
     font-size: var(--font-size-5);
   }
 
   .menu ul li a {
     font-size: var(--font-size-5);
+  }
+
+  #title h1 {
+    font-size: var(--font-size-7);
+  }
+
+  #mission h2 {
+    font-size: var(--font-size-6);
+  }
+
+  .scroll-section .content {
+    grid-template-columns: 1fr;
+  }
+
+  .scroll-section .text-content {
+    margin-top: var(--size-4);
+  }
+
+  .shadow-title {
+    font-size: calc(var(--font-size-fluid-4) * 3);
   }
 }
 
@@ -174,6 +226,54 @@ footer {
     transform: translateY(-15%);
   }
   100% {
+    transform: translateY(0);
+  }
+}
+
+/* Scroll-Driven Animations */
+@supports (animation-timeline: scroll()) {
+  .scroll-section {
+    scroll-snap-align: start;
+  }
+
+  .scroll-section .Visual picture {
+    animation: image-slide 1s ease-in-out both;
+    animation-timeline: section-scroll;
+    view-timeline: section-scroll vertical;
+  }
+
+  .scroll-section .text-content {
+    animation: text-fade 1s ease-in both;
+    animation-timeline: section-scroll;
+    view-timeline: section-scroll vertical;
+  }
+
+  @keyframes image-slide {
+    0% {
+      transform: translateY(50%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes text-fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+/* Fallback for browsers without scroll-linked animations */
+@supports not (animation-timeline: scroll()) {
+  .scroll-section .Visual picture,
+  .scroll-section .text-content {
+    opacity: 1;
     transform: translateY(0);
   }
 }
