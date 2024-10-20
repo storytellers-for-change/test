@@ -31,18 +31,28 @@ ul {
   margin: 0;
 }
 
-/* Simple Menu Styles */
-#open-menu-btn {
-  position: absolute;
-  top: var(--size-4);
-  right: var(--size-4);
+/* Sticky Menu Styles */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--size-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  background: rgba(31, 32, 41, 0.9);
+}
+
+.btn-custom {
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 1001;
 }
 
-#open-menu-btn svg {
+.btn-custom svg {
   width: var(--size-7);
   height: var(--size-7);
   fill: white;
@@ -58,7 +68,7 @@ ul {
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .menu.open {
@@ -92,14 +102,13 @@ ul {
   fill: white;
 }
 
-/* Sections */
+/* Main Sections */
 .section {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--size-6) var(--size-4);
-  position: relative;
   color: white;
   text-align: center;
 }
@@ -112,11 +121,6 @@ ul {
   font-size: var(--font-size-fluid-5);
 }
 
-#mission h2 {
-  font-size: var(--font-size-fluid-4);
-}
-
-/* Footer */
 footer {
   text-align: center;
   padding: var(--size-5);
