@@ -1,5 +1,6 @@
 @import 'https://unpkg.com/open-props';
 
+/* Base Styles */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -27,58 +28,87 @@ h1, h2, h3, h4, h5, h6 {
 
 ul {
   list-style-type: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-/* Sticky Menu Styles */
+/* Navigation Menu */
 nav {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   padding: var(--size-4);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: rgba(31, 32, 41, 0.8);
   z-index: 1000;
-  background: rgba(31, 32, 41, 0.9);
 }
 
-.btn-custom {
+nav .logo {
+  width: var(--size-9);
+}
+
+nav .btn-custom {
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1001;
+  color: white;
 }
 
-.btn-custom svg {
+nav .btn-custom svg {
   width: var(--size-7);
   height: var(--size-7);
-  fill: white;
 }
 
 .menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(31, 32, 41, 0.95);
   display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
 }
 
 .menu.open {
+  display: block;
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 32, 41, 0.95);
+  z-index: 999;
+  padding: var(--size-5);
+  overflow-y: auto;
+}
+
+.menu > div {
   display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.menu header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.close-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.close-menu svg {
+  width: var(--size-7);
+  height: var(--size-7);
 }
 
 .menu ul {
+  margin-top: var(--size-6);
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--size-6);
+  justify-content: center;
+}
+
+.menu ul li {
+  margin-bottom: var(--size-5);
 }
 
 .menu ul li a {
@@ -87,28 +117,14 @@ nav {
   text-transform: uppercase;
 }
 
-.close-menu {
-  position: absolute;
-  top: var(--size-4);
-  right: var(--size-4);
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.close-menu svg {
-  width: var(--size-7);
-  height: var(--size-7);
-  fill: white;
-}
-
-/* Main Sections */
+/* Sections */
 .section {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--size-6) var(--size-4);
+  position: relative;
   color: white;
   text-align: center;
 }
@@ -121,8 +137,76 @@ nav {
   font-size: var(--font-size-fluid-5);
 }
 
+#mission h2 {
+  font-size: var(--font-size-fluid-4);
+}
+
+.content-section {
+  padding-top: var(--size-9);
+}
+
+/* Image Animation Section */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.image-wrapper {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.image {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Show the first image by default */
+.first-image {
+  opacity: 1;
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: var(--size-5);
   background: rgba(31, 32, 41, 0.8);
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav {
+    padding: var(--size-3);
+  }
+
+  nav .btn-custom svg,
+  .close-menu svg {
+    width: var(--size-6);
+    height: var(--size-6);
+  }
+
+  nav .logo {
+    width: var(--size-7);
+  }
+
+  .menu ul li a {
+    font-size: var(--font-size-5);
+  }
+
+  #title h1 {
+    font-size: var(--font-size-7);
+  }
+
+  #mission h2 {
+    font-size: var(--font-size-6);
+  }
 }
