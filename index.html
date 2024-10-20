@@ -1,49 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parallax Example</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Parallax Title and Gradient Background</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Muli:200,400,600,800,900&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Parallax Background and Title -->
-  <div class="shadow-title parallax-top-shadow">work</div>
-  <div class="section-parallax parallax-00" style="background-image: url('http://www.ivang-design.com/svg-load/parallax/parallax-0.png');"></div>
-  <div class="section-parallax parallax-01" style="background-image: url('http://www.ivang-design.com/svg-load/parallax/parallax-01.png');"></div>
+  <!-- Gradient Background and Parallax Title -->
+  <div class="gradient-background">
+    <div class="parallax-title">Your Title</div>
+  </div>
 
-  <!-- Section Title and Content -->
-  <div class="section full-height">
-    <div class="section-title-wrap">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center parallax-fade-top">
-            <p>we do magic</p>
-            <h1>chase your<br>passion</h1>
-          </div>
-        </div>
-      </div>
+  <!-- Content Section -->
+  <div class="content-section">
+    <div class="content-container">
+      <p>We do magic</p>
+      <h1>Chase your<br>passion</h1>
     </div>
   </div>
 
-  <!-- Footer -->
-  <div class="section padding-top-bottom over-hide background-dark z-bigger-2">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-7 text-center">
-          <a href="#" class="hover-target">
-            <div class="project-link-wrap">
-              <p>let's talk</p>
-            </div>
-          </a>
+  <!-- Case Study Showcase -->
+  <div class="case-study-section">
+    <ul class="case-study-menu">
+      <li data-target="item1" class="hover-target">Light</li>
+      <li data-target="item2" class="hover-target">Flare</li>
+      <li data-target="item3" class="hover-target">Nature</li>
+      <li data-target="item4" class="hover-target">Fire</li>
+    </ul>
+    <ul class="case-study-items">
+      <li id="item1">
+        <div class="img-hero-background">
+          <img src="light.jpg" alt="Light">
         </div>
-      </div>
-    </div>
+        <div class="hero-number-back">01</div>
+        <div class="hero-number">01</div>
+        <div class="hero-number-fixed">04</div>
+        <div class="case-study-title">Graphic Design, Interaction</div>
+      </li>
+      <li id="item2">
+        <div class="img-hero-background">
+          <img src="flare.jpg" alt="Flare">
+        </div>
+        <div class="hero-number-back">02</div>
+        <div class="hero-number">02</div>
+        <div class="case-study-title">Advertising, Art Direction</div>
+      </li>
+      <li id="item3">
+        <div class="img-hero-background">
+          <img src="nature.jpg" alt="Nature">
+        </div>
+        <div class="hero-number-back">03</div>
+        <div class="hero-number">03</div>
+        <div class="case-study-title">Photography, Retouching</div>
+      </li>
+      <li id="item4">
+        <div class="img-hero-background">
+          <img src="fire.jpg" alt="Fire">
+        </div>
+        <div class="hero-number-back">04</div>
+        <div class="hero-number">04</div>
+        <div class="case-study-title">Photography, Advertising</div>
+      </li>
+    </ul>
   </div>
 
-  <!-- Scroll to top button -->
+  <!-- Scroll to Top Button -->
   <div class="scroll-to-top hover-target"></div>
 
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- Custom JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
