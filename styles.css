@@ -1,254 +1,193 @@
-@import 'https://unpkg.com/open-props' layer(design.system);
-@import 'https://unpkg.com/open-props/normalize.dark.min.css' layer(base.normalize);
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap') layer(base.fonts);
-@import 'https://unpkg.com/layout-craft@0.1.1/dist/utilities.css' layer(design.utilities);
+/* Import Open Props */
+@import 'https://unpkg.com/open-props';
 
-/* Base Styles */
-@layer base {
-  :root {
-    font-family: 'Inter', sans-serif;
-    --surface-1: black;
-    --surface-2: oklch(0.19 0 0);
-    --surface-3: #f1dadf;
-    --text-1: white;
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-image: linear-gradient(
+    180deg,
+    oklch(63% 0.1 204) 0%,
+    oklch(98% 0.01 170) 100%
+  );
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--gray-10);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
-    --brand-1: oklch(0.65 0.24 16.93);
-    --brand-2: oklch(0.77 0.1 90);
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-    --nav-block-size: 3.75rem;
-    background-color: transparent;
-    background-image: linear-gradient(
-      180deg in oklab,
-      oklch(63% 0.1 204) 0%,
-      70%,
-      oklch(98% 0.01 170) 100%
-    );
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
 
-    @media (min-width: 1024px) {
-      --nav-block-size: 4.625rem;
-    }
-  }
-
-  html {
-    scroll-padding-block-start: var(--nav-block-size);
-  }
-
-  body {
-    margin: 0;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  main {
-    position: relative;
-    z-index: 1;
-  }
-
-  h1, h2, h3, h4, h5, h6, p {
-    color: var(--text-1);
-  }
-
-  h1 {
-    font-size: var(--font-size-fluid-5);
-    text-align: center;
-    margin: var(--size-6) 0 var(--size-4) 0;
-  }
-
-  h2 {
-    font-size: var(--font-size-fluid-4);
-    text-align: center;
-    margin: var(--size-6) 0 var(--size-4) 0;
-  }
-
-  p {
-    font-size: var(--font-size-3);
-    max-width: var(--size-content-3);
-    margin: 0 auto var(--size-5) auto;
-    text-align: center;
-    padding: 0 var(--size-4);
-  }
-
-  footer {
-    text-align: center;
-    padding: var(--size-5);
-    background: rgba(0, 0, 0, 0.8);
-  }
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* Navigation Menu */
-@layer components.nav {
-  .Nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: var(--nav-block-size);
-    background-color: hsl(0 0% 0% / 0.1);
-    backdrop-filter: blur(28px);
-    z-index: var(--layer-3);
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: var(--size-5);
+nav {
+  position: fixed;
+  width: 100%;
+  padding: var(--size-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(31, 32, 41, 0.8);
+  z-index: 1000;
+}
 
-    > a {
-      background: var(--gradient-21);
-      color: white;
-      border-radius: var(--radius-round);
-      padding: var(--size-2) var(--size-4);
-      text-decoration: none;
-      font-weight: var(--font-weight-6);
-      box-shadow: var(--shadow-2);
-    }
-  }
+nav .logo h1 {
+  font-size: var(--font-size-6);
+  color: white;
+}
+
+.btn-custom {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.btn-custom svg {
+  width: var(--size-7);
+  height: var(--size-7);
+}
+
+.menu {
+  display: none;
+}
+
+.menu.open {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(31, 32, 41, 0.95);
+  z-index: 999;
+  padding: var(--size-5);
+}
+
+.menu header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.close-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.close-menu svg {
+  width: var(--size-7);
+  height: var(--size-7);
+}
+
+.menu ul {
+  margin-top: var(--size-6);
+}
+
+.menu ul li {
+  margin-bottom: var(--size-5);
+}
+
+.menu ul li a {
+  font-size: var(--font-size-6);
+  color: white;
+  text-transform: uppercase;
 }
 
 /* Sections */
-@layer components.sections {
-  .section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: var(--nav-block-size);
-    position: relative;
-  }
-
-  .Hero {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--size-4);
-  }
-
-  .Visual {
-    position: sticky;
-    top: calc(var(--nav-block-size) + var(--size-5));
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-  }
-
-  .Visual picture {
-    max-width: 600px;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border-radius: var(--radius-3);
-    box-shadow: var(--shadow-4);
-  }
-
-  .Visual img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .Content {
-    position: relative;
-    z-index: 2;
-  }
-
-  .Content > div {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-
-  .Content h3 {
-    font-size: var(--font-size-fluid-4);
-    margin-bottom: var(--size-4);
-  }
-
-  .subhead {
-    color: var(--brand-1);
-    font-size: var(--font-size-6);
-    font-weight: var(--font-weight-6);
-    margin-bottom: var(--size-4);
-  }
-
-  .Content p {
-    text-align: left;
-    max-width: var(--size-content-2);
-  }
-
-  .SmallScreenContent {
-    display: none;
-  }
-
-  @media (max-width: 1023px) {
-    .Visual {
-      position: relative;
-      top: auto;
-      height: auto;
-    }
-
-    .Content {
-      display: none;
-    }
-
-    .SmallScreenContent {
-      display: block;
-      position: sticky;
-      top: calc(var(--nav-block-size) + var(--size-2));
-      background-color: black;
-      color: white;
-      padding: var(--size-2);
-      text-align: center;
-      font-weight: var(--font-weight-5);
-    }
-  }
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--size-6) var(--size-4);
+  position: relative;
+  color: white;
+  text-align: center;
 }
 
-/* Scroll-Driven Animations */
-@layer components.animations {
-  @supports (animation-timeline: scroll()) {
-    body {
-      timeline-scope: --team-section, --events-section, --tools-section;
-    }
+.section.content-section {
+  padding-top: var(--size-9);
+}
 
-    .FirstLockup {
-      view-timeline-name: --team-section;
-    }
+.content {
+  max-width: var(--size-content-3);
+}
 
-    .SecondLockup {
-      view-timeline-name: --events-section;
-    }
+#title h1 {
+  font-size: var(--font-size-fluid-5);
+}
 
-    .ThirdLockup {
-      view-timeline-name: --tools-section;
-    }
+#mission h2 {
+  font-size: var(--font-size-fluid-4);
+}
 
-    .Visual picture {
-      animation: image-fade 1s forwards;
-      animation-timeline: var(--animation-timeline);
-    }
+/* Image Animation Section */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
 
-    .FirstPic {
-      --animation-timeline: --team-section;
-    }
+.image-wrapper {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+}
 
-    .SecondPic {
-      --animation-timeline: --events-section;
-    }
+.image {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
 
-    .ThirdPic {
-      --animation-timeline: --tools-section;
-    }
+/* Show the first image by default */
+.first-image {
+  opacity: 1;
+}
 
-    @keyframes image-fade {
-      0% {
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
+/* Footer */
+footer {
+  text-align: center;
+  padding: var(--size-5);
+  background: rgba(31, 32, 41, 0.8);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav .logo h1 {
+    font-size: var(--font-size-5);
+  }
+
+  .menu ul li a {
+    font-size: var(--font-size-5);
+  }
+
+  #title h1 {
+    font-size: var(--font-size-7);
+  }
+
+  #mission h2 {
+    font-size: var(--font-size-6);
   }
 }
